@@ -14,24 +14,10 @@
     opacity: .7;
 }
 
-ul {
-    margin: 0 auto;
-    width: 900px;
-    height: 560px;
-}
 
 h1 {
     width: 1000px;
     text-align: center;
-
-}
-
-ul li  {
-    display:inline-block;
-    list-style-type: none;
-    width: 247px;
-    margin: 25px 25px;
-    height: 205px;
 
 }
 
@@ -40,4 +26,42 @@ ul li  {
     width: 277px;
     display:block;
     margin: 0 auto;
+}
+
+.one_hander {
+    width: 200px;
+    height: 200px;
+}
+
+.two_hander {
+    width: 200px;
+    height: 200px;
+}
+
+.weapon_container {
+    width: 608px;
+    margin: 0 auto;
+}
+
+#player_1_hp {
+    height: 50px;
+    width: 250px;
+    margin: 0px auto;
+    text-align: center;
+}
+#player_1_hp h2, #player_2_hp h2 {
+    display: inline;
+}
+
+#player_1_hp p, #player_2_hp p {
+    display: inline-block;
+    line-height: 28px;
+    font-size: 20pt;
+}
+
+#player_2_hp {
+    height: 50px;
+    width: 250px;
+    margin: 0px auto;
+    text-align: center;
 }
