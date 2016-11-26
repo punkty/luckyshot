@@ -46,13 +46,5 @@ $(document).ready(function() {
     $( ".one_hander" ).on('click',function() {
         console.log(d6roll(1,6));
     });
-    // button test
-    var theTotal = 0;
-    $('button').click(function(){
-       theTotal = Number(theTotal) + Number($(this).val());
-        $('.total').text("Total: "+theTotal);        
-    });
-
-    $('.total').text("Total: "+theTotal);  
 
 });
