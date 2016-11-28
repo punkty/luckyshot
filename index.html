@@ -3,40 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <meta name="description" content="This site is about ">
+    <meta name="description" content="This is a dueling game... ">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
+    <div class="winner">
+      <button class="restart">Play again?</button>
+    </div><!--  /.winner -->
     <div id="container">
     <h1>Lucky Shot</h1>
-      <div class="weapon_container">
-        <div id="player_1_hp">
-          <h2>player 1 HP:</h2>
-          <p>100</p>
-        </div><!-- /#player_1_hp  -->
-        <div id="player_2_hp">
-          <h2>player 2 HP:</h2>
-          <p>100</p>
-        </div><!-- /#player_2_hp  -->
-      </div><!--  /.weapon_container -->
+      <div class="player_container">
+        <div class="player_stats">
+          <h2>Player 1 HP:</h2>
+          <p id="p1hp">100</p>
+          <div class="activity_player1"></div>
+        </div><!-- stats for player 1  -->
+        <div class="player_stats">
+          <h2>Player 2 HP:</h2>
+          <p id="p2hp">100</p>
+          <div class="activity_player2"></div>
+        </div><!-- stats for player 2  -->
+      </div><!--  .player_container -->
+      <h3>Turn:</h3>
+      <p id="turn">1</p>
       <div class="first_player_box">
-        <h1>Player 1's Turn</h1>
+        <h2>Player 1's Turn</h2>
         <img class="two_hander" src="img/ak47.svg" alt="AK">
         <img class="one_hander" src="img/pistol.svg" alt="pistol">
-        <img class="one_hander" src="img/revolver.svg" alt="revoler">
+        <img class="revolver one_hander" src="img/revolver.svg" alt="revoler">
       </div>
       <div class="second_player_box">
-        <h1>Player 2's Turn</h1>
-            <p>click a weapon to fire from</p>
+        <h2>Player 2's Turn</h2>
             <img class="two_hander" src="img/ak47.svg" alt="AK">
             <img class="one_hander" src="img/pistol.svg" alt="pistol">
+            <img class="revolver one_hander" src="img/revolver.svg" alt="revoler">
       </div>
 
     <button class="endturn">End Turn</button>
-    <div class="activity"></div>
-
-    
-
     </div><!-- /#container  -->
 
 

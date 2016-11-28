@@ -1,6 +1,9 @@
 * {
     margin: 0px;
     padding: 0px;
+    background: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+    color: #303030;
 }
 
 
@@ -18,7 +21,12 @@
 h1 {
     width: 1000px;
     text-align: center;
+    margin-bottom: 15px;
 
+}
+
+h3 {
+    text-align: center;
 }
 
 #show {
@@ -29,52 +37,113 @@ h1 {
 }
 
 .one_hander {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
 .two_hander {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 
-.weapon_container {
-    width: 608px;
+.player_container {
+    width: 900px;
     margin: 0 auto;
 }
 
-#player_1_hp {
-    height: 50px;
-    width: 250px;
-    margin: 0px auto;
-    text-align: center;
-}
-#player_1_hp h2, #player_2_hp h2 {
-    display: inline;
+.player_stats {
+    text-align: center
 }
 
-#player_1_hp p, #player_2_hp p {
+.player_stats > h2 {
     display: inline-block;
-    line-height: 28px;
+}
+
+.player_stats > p {
+    display: inline-block;
     font-size: 20pt;
 }
 
-#player_2_hp {
-    height: 50px;
-    width: 250px;
-    margin: 0px auto;
+
+.activity_player1, .activity_player2 {
+    overflow: auto;
+    height: 117px;
+}
+
+.activity_player1 p:first-of-type, .activity_player2 p:first-of-type {
+    color: green;
+    font-size: 13pt;
+}
+
+.player_stats {
+    border: solid #303030 1px;
+    width: 440px;
+    height: 150px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 6px;
+}
+
+
+.zoomimg {
+    width: 100px;
+    height: 100px;
+}
+
+.first_player_box > img:first-of-type {
+    margin-left: 134px;
+}
+
+.second_player_box > img:first-of-type {
+    margin-left: 549px; 
+}
+
+.first_player_box > h2 , .second_player_box > h2 {
     text-align: center;
 }
 
-.zoomimg {
-    width: 200px;
-    height: 200px;
+.endturn {
+    width: 800px;
+    height: 50px;
+    font-size: 12pt;
+    margin: 0px auto;
+    display: block;
 }
 
-.first_player_box {
 
+#turn {
+    border:solid #303030 2px;
+    margin: 0px auto;
+    text-align: center;
+    width: 40px;
+    color: #f8f8f8;
+    background: #303030;
+    font-size: 18pt;
 }
 
-.second_player_box {
+.winner {
+    background: #f8f8f8;
+    vertical-align: top;
+    width: 800px;
+    height: 500px;
+    left: 212px;
+    margin: 0px auto;
+    border: solid #969696 1px;
+    text-align: center;
+}
 
+.winner > p {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    font-size: 34pt;
+
+}
+.restart {
+    width: 300px;
+    height: 50px;
+    font-size: 14pt;
+}
+
+.red {
+    color:red;
 }
