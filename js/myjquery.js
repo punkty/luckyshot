@@ -1,7 +1,7 @@
 $(document).ready(function() {
     //dice roll function
-    function d6(min, max) {
-        return Math.ceil(Math.random() * (max - min) + min);
+    function d6() {
+        return Math.ceil(Math.random() * (6));
     }
     $('.winner').hide();
     // Turn counter
@@ -36,7 +36,7 @@ $(document).ready(function() {
             shotResult = 0;
             resultText = 'You rolled a 2, You missed!';
         } else if(dieroll == 1){
-            shotResult = 0;
+            shotResult = 4;
             resultText = 'You rolled a 1, Critical FAIL!';
         }
         akResults.push(shotResult);
@@ -63,7 +63,7 @@ $(document).ready(function() {
             shotResult = 0;
             resultText = 'You rolled a 2, You missed!';
         } else if(dieroll == 1){
-            shotResult = 0;
+            shotResult = 4;
             resultText = 'You rolled a 1, Critical FAIL!';
         }
         revolverResults.push(shotResult);
@@ -76,26 +76,42 @@ $(document).ready(function() {
     $( ".two_hander" ).on('click',function() {
         event.stopPropagation();
         if(turnCounter == 0){
-            dieroll = d6(1,6);
+            dieroll = d6();
             akShotResult(dieroll);
             if($(this).parent('.first_player_box').length){
-                player2HPTotal = Number(player2HPTotal) - akResults[0];
-                player2HPTag.text(player2HPTotal)
-                if(dieroll == 6){
-                    $(".activity_player1").prepend(`<p class='red'>${akResults[1]} AK47 deals ${akResults[0]} damage</p>`)
+                //rolling a 1 penalty
+                if(dieroll == 1){
+                    player1HPTotal = Number(player1HPTotal) - akResults[0];
+                    player1HPTag.text(player1HPTotal)
+                    $(".activity_player1").prepend(`<p>${akResults[1]} self inflicting ${akResults[0]} damage!</p>`)
+                    winnerCheck()
                 } else {
-                    $(".activity_player1").prepend(`<p>${akResults[1]} AK47 deals ${akResults[0]} damage</p>`)
+                    player2HPTotal = Number(player2HPTotal) - akResults[0];
+                    player2HPTag.text(player2HPTotal)
+                    if(dieroll == 6){
+                        $(".activity_player1").prepend(`<p class='red'>${akResults[1]} AK47 deals ${akResults[0]} damage</p>`)
+                    } else {
+                        $(".activity_player1").prepend(`<p>${akResults[1]} AK47 deals ${akResults[0]} damage</p>`)
+                    }
                 }
+                
             }
             if($(this).parent('.second_player_box').length){
-               player1HPTotal = Number(player1HPTotal) - akResults[0];
-               player1HPTag.text(player1HPTotal)
-                if(dieroll == 6){
-                    $(".activity_player2").prepend(`<p class='red'>${akResults[1]} the AK47 deals ${akResults[0]} damage</p>`)
-                }else{
-                    $(".activity_player2").prepend(`<p>${akResults[1]} the AK47 deals ${akResults[0]} damage</p>`)
-                }
+                if(dieroll == 1){
+                    player2HPTotal = Number(player2HPTotal) - akResults[0];
+                    player2HPTag.text(player2HPTotal)
+                    $(".activity_player2").prepend(`<p>${akResults[1]} self inflicting ${akResults[0]} damage!</p>`)
+                } else {
+                    player1HPTotal = Number(player1HPTotal) - akResults[0];
+                    player1HPTag.text(player1HPTotal)
+                    if(dieroll == 6){
+                        $(".activity_player2").prepend(`<p class='red'>${akResults[1]} the AK47 deals ${akResults[0]} damage</p>`)
+                    }else{
+                        $(".activity_player2").prepend(`<p>${akResults[1]} the AK47 deals ${akResults[0]} damage</p>`)
+                    }
+                }    
             }
+            console.log(dieroll);
             turnCounter = 2;
             winnerCheck();    
         }
@@ -105,7 +121,7 @@ $(document).ready(function() {
         event.stopPropagation();
         if(turnCounter < 2){
             if($(this).parent('.first_player_box').length){
-                dieroll = d6(1,6);
+                dieroll = d6();
                 revolverShotResult(dieroll);
                 player2HPTotal = Number(player2HPTotal) - revolverResults[0];
                 player2HPTag.text(player2HPTotal)
@@ -114,7 +130,7 @@ $(document).ready(function() {
 
             }
             if($(this).parent('.second_player_box').length){
-                dieroll = d6(1,6);
+                dieroll = d6();
                 revolverShotResult(dieroll);
                 player1HPTotal = Number(player1HPTotal) - revolverResults[0];
                 player1HPTag.text(player1HPTotal)
@@ -122,6 +138,7 @@ $(document).ready(function() {
                 turnCounter += 1;
 
             }
+            console.log(dieroll)
             winnerCheck();
         }
     
@@ -141,12 +158,12 @@ $(document).ready(function() {
 
     //End of game check
     function winnerCheck(){
-        if(player1HPTotal < 0){
+        if(player1HPTotal <= 0){
             $('.winner').prepend(`<p>Player 2 has won the duel!</p>`);
             $('.winner').show();
             $('#container').hide()
         }
-        if(player2HPTotal < 0){
+        if(player2HPTotal <= 0){
             $('.winner').prepend(`<p>Player 1 has won the duel!</p>`);
             $('.winner').show();
             $('#container').hide()
